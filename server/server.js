@@ -70,6 +70,9 @@ app.put('/list/:id/:status', (req, res) => {
     const status = req.params.status;
     let queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`
     console.log(req.params);
+    // if (status === undefined) { LEFT OFF HERE!!!!!!!
+    //     status = "incomplete";
+    // }
     pool.query(queryText, [status, taskId])
     .then((result) => {
         console.log('Success, status updated.');
