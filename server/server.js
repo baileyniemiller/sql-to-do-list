@@ -67,10 +67,11 @@ app.post('/list', (req, res) => {
 // PUT --> update status to "complete"
 app.put('/list/:id/:status', (req, res) => {
     const taskId = req.params.id;
-    const status = req.params.status;
-    const queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`
+    const taskStatus = req.params.status;
+    // const status = req.params.status;
+    const queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`;
     console.log(req.params);
-    pool.query(queryText, [status, taskId])
+    pool.query(queryText, [taskStatus, taskId])
     .then((result) => {
         console.log('Success, status updated.');
         res.sendStatus(200) // A OK!
