@@ -35,6 +35,7 @@ app.get('/list', (req, res) => {
     });
 });
 
+
 // POST route to add a task item to the list
 /*
 {
@@ -62,27 +63,36 @@ app.post('/list', (req, res) => {
         });
 });
 
+
 // PUT --> update status to "complete"
 app.put('/list/:id/:status', (req, res) => {
     const taskId = req.params.id;
     const status = req.params.status;
-    let queryText;
+    let queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`
     console.log(req.params);
-    pool.query(queryText, [taskId])
+    pool.query(queryText, [status, taskId])
     .then((result) => {
         console.log('Success, status updated.');
         res.sendStatus(200) // A OK!
     }).catch((error) => {
         console.log(`Error in making query: ${queryText}`);
         res.sendStatus(500); // Mehhh.  Server Error.
-    })
-})
+    });
+});
 
 
-
-
-
-
+// DELETE --> delete the task
+app.delete('/list/:id', (req, res) => {
+    const taskId = req.params.id;
+    let queryText = `DELETE FROM "to-do" WHERE id=$1;`;
+    pool.query(queryText, [taskId])
+    .then((result) => {
+        console.log('Task successfully deleted.');
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error with deleting task: ${queryText}`);
+    });
+});
 
 
 const PORT = process.env.PORT || 5000;
