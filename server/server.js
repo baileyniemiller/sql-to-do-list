@@ -24,7 +24,7 @@ app.get('/dbtest', (req, res) => {
 // GET route to send task items
 app.get('/list', (req, res) => {
     // go get all of the items from the to do list and order them by status.
-    let queryText = `SELECT * FROM "to-do" ORDER BY "status";`;
+    const queryText = `SELECT * FROM "to-do" ORDER BY "status";`;
     pool.query(queryText)
     .then((result) => {
         console.log('Retrieving tasks successful.');
@@ -68,11 +68,8 @@ app.post('/list', (req, res) => {
 app.put('/list/:id/:status', (req, res) => {
     const taskId = req.params.id;
     const status = req.params.status;
-    let queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`
+    const queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`
     console.log(req.params);
-    // if (status === undefined) { LEFT OFF HERE!!!!!!!
-    //     status = "incomplete";
-    // }
     pool.query(queryText, [status, taskId])
     .then((result) => {
         console.log('Success, status updated.');
@@ -87,7 +84,7 @@ app.put('/list/:id/:status', (req, res) => {
 // DELETE --> delete the task
 app.delete('/list/:id', (req, res) => {
     const taskId = req.params.id;
-    let queryText = `DELETE FROM "to-do" WHERE id=$1;`;
+    const queryText = `DELETE FROM "to-do" WHERE id=$1;`;
     pool.query(queryText, [taskId])
     .then((result) => {
         console.log('Task successfully deleted.');

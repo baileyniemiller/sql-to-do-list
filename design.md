@@ -27,6 +27,7 @@ Let's start by setting up the project.  We will need:
 * npm init --yes
 * npm install express
 * npm install pg
+* Forgot a .gitignore...will remember for next time :P
 
 We should be good to go!
 
