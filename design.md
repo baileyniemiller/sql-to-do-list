@@ -65,4 +65,4 @@ In client.js we will need:
 * DELETE --> obviously...delete a task from the face of the earth
 (all with ajax calls!)
 
-## Have some fun with some css :)
+## Have some fun with css :)

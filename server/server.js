@@ -24,7 +24,7 @@ app.get('/dbtest', (req, res) => {
 // GET route to send task items
 app.get('/list', (req, res) => {
     // go get all of the items from the to do list and order them by status.
-    const queryText = `SELECT * FROM "to-do" ORDER BY "status";`;
+    const queryText = `SELECT * FROM "to-do" ORDER BY "task";`;
     pool.query(queryText)
     .then((result) => {
         console.log('Retrieving tasks successful.');
@@ -41,19 +41,19 @@ app.get('/list', (req, res) => {
 {
     "id": 1,   //we are ignoring this tho because DB is taking care of it!
     "task": 'Empty the dishwasher.',
-    "status": 'Complete!'
+    "status": 'Incomplete' (default)
 }
 */
 app.post('/list', (req, res) => {
     const list = req.body;
     const taskParam = list.task;
-    const statusParam = list.status;
-    console.log(`${taskParam} ${statusParam}`);
+    // const statusParam = list.status;
+    console.log(`${taskParam}`);
 
     const queryText = `
-        INSERT INTO "to-do" ("task", "status")
-        VALUES ($1, $2);`
-    pool.query(queryText, [taskParam, statusParam])
+        INSERT INTO "to-do" ("task")
+        VALUES ($1);`
+    pool.query(queryText, [taskParam])
         .then(function(result) {
             console.log('Yay, task has been added.');
             res.sendStatus(201); //good to go and task created
