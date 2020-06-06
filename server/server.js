@@ -18,7 +18,65 @@ app.get('/dbtest', (req, res) => {
 });
 
 
+//////////////////////////////////////////////////////////////////////////////
 
+
+// GET route to send task items
+app.get('/list', (req, res) => {
+    // go get all of the items from the to do list and order them by status.
+    let queryText = `SELECT * FROM "to-do" ORDER BY "status";`;
+    pool.query(queryText)
+    .then((result) => {
+        console.log('Retrieving tasks successful.');
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(`Error in making query: ${queryText}`);
+        res.sendStatus(500);
+    });
+});
+
+// POST route to add a task item to the list
+/*
+{
+    "id": 1,   //we are ignoring this tho because DB is taking care of it!
+    "task": 'Empty the dishwasher.',
+    "status": 'Complete!'
+}
+*/
+app.post('/list', (req, res) => {
+    const list = req.body;
+    const taskParam = list.task;
+    const statusParam = list.status;
+    console.log(`${taskParam} ${statusParam}`);
+
+    const queryText = `
+        INSERT INTO "to-do" ("task", "status")
+        VALUES ($1, $2);`
+    pool.query(queryText, [taskParam, statusParam])
+        .then(function(result) {
+            console.log('Yay, task has been added.');
+            res.sendStatus(201); //good to go and task created
+        }).catch(function(error) {
+            console.log('Sorry, error with query: ', error);
+            res.sendStatus(500); //server error
+        });
+});
+
+// PUT --> update status to "complete"
+app.put('/list/:id/:status', (req, res) => {
+    const taskId = req.params.id;
+    const status = req.params.status;
+    let queryText;
+    console.log(req.params);
+    pool.query(queryText, [taskId])
+    .then((result) => {
+        console.log('Success, status updated.');
+        res.sendStatus(200) // A OK!
+    }).catch((error) => {
+        console.log(`Error in making query: ${queryText}`);
+        res.sendStatus(500); // Mehhh.  Server Error.
+    })
+})
 
 
 

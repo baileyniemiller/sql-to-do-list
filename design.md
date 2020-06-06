@@ -24,7 +24,7 @@ Let's start by setting up the project.  We will need:
     --> index.html
     --> style.css
 * Routes Folder if needed
-* nmp init --yes
+* npm init --yes
 * npm install express
 * npm install pg
 
