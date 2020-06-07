@@ -34,6 +34,7 @@ app.get('/list', (req, res) => {
         res.sendStatus(500);
     });
 });
+// end GET
 
 
 // POST route to add a task item to the list
@@ -49,7 +50,7 @@ app.post('/list', (req, res) => {
     const taskParam = list.task;
     // const statusParam = list.status;
     console.log(`${taskParam}`);
-
+    // insert whatever the text is into the task
     const queryText = `
         INSERT INTO "to-do" ("task")
         VALUES ($1);`
@@ -62,6 +63,7 @@ app.post('/list', (req, res) => {
             res.sendStatus(500); //server error
         });
 });
+// end POST
 
 
 // PUT --> update status to "complete"
@@ -69,6 +71,7 @@ app.put('/list/:id/:status', (req, res) => {
     const taskId = req.params.id;
     const taskStatus = req.params.status;
     // const status = req.params.status;
+    // update the status to complete where the button was clicked of that specific id
     const queryText = `UPDATE "to-do" SET "status"=$1 WHERE id=$2;`;
     console.log(req.params);
     pool.query(queryText, [taskStatus, taskId])
@@ -80,11 +83,13 @@ app.put('/list/:id/:status', (req, res) => {
         res.sendStatus(500); // Mehhh.  Server Error.
     });
 });
+// end PUT
 
 
 // DELETE --> delete the task
 app.delete('/list/:id', (req, res) => {
     const taskId = req.params.id;
+    // delete the whole item where the specific id is whatever was clicked
     const queryText = `DELETE FROM "to-do" WHERE id=$1;`;
     pool.query(queryText, [taskId])
     .then((result) => {
@@ -94,6 +99,7 @@ app.delete('/list/:id', (req, res) => {
         console.log(`Error with deleting task: ${queryText}`);
     });
 });
+// end DELETE
 
 
 const PORT = process.env.PORT || 5000;
