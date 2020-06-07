@@ -64,13 +64,14 @@ function completeTask(event) {
     let taskStatus = $(element).data("status");
     console.log($(element).data());
     taskStatus = "Complete!";
-    if (taskStatus === "Complete!") {
-        $('body').css('background-color', '#a0e06c');
-    }
+    $('body').css('background-color', '#a0e06c');
     $.ajax({
         type: 'PUT',
         url: "/list/" + taskId + "/" + taskStatus //complete or incomplete
     }).then((result) => {
+        // if (taskStatus === "Complete!") {
+        //     $('body').css('background-color', '#a0e06c');
+        // }
         getListData();
         console.log('Woohoo, task complete!');
         alert('Way to go!');
