@@ -1,6 +1,4 @@
-# Project Name
-
-To-Do List
+# To-Do List
 
 ## Description
 
@@ -12,10 +10,8 @@ This is an app where you can make a to-do list!  A user should be able to type a
 
 ## Prerequisites
 
-* https://nodejs.org/en/ - automatic!
-[Node.js](https://nodejs.org/en/)
-* https://www.postgresql.org/ - automatic!
-[Postgres](https://www.postgresql.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Postgres](https://www.postgresql.org/)
 
 
 ## Installation
