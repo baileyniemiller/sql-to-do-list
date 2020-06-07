@@ -19,12 +19,12 @@ function getListData() {
         for (let i=0; i<response.length; i++) {
             let list = response[i];
             $('#listTableBody').append(`
-                <tr>
-                    <td>${list.task}</td>
-                    <td>${list.status}</td>
-                    <td><button class="complete" id="taskComplete" data-id="${list.id}" data-status="${list.status}"></button></td>
-                    <td><button class="delete" data-id="${list.id}"></button></td>
-                </tr>`
+            <tr>
+                <td>${list.task}</td>
+                <td>${list.status}</td>
+                <td><button  class="complete" id="taskComplete" data-id="${list.id}" data-status="${list.status}"></button></td>
+                <td><button class="delete" data-id="${list.id}"></button></td>
+            </tr>`
             );
         }
     }).catch(function(error) {
@@ -63,13 +63,13 @@ function completeTask(event) {
     let taskStatus = $(element).data("status");
     console.log($(element).data());
     taskStatus = "Complete!";
-    backgroundGreen();
     $.ajax({
         type: 'PUT',
         url: "/list/" + taskId + "/" + taskStatus //complete or incomplete
     }).then((result) => {
         getListData();
         console.log('Woohoo, task complete!');
+        alert('Way to go!');
     }).catch((error) => {
         console.log('Error completing task.');
     });
@@ -93,11 +93,6 @@ function deleteTask() {
 }
 // end DELETE
 
-function backgroundGreen() {
-    const element = event.target;
-    $(element).css('background-color', '#a0e06c');
-}
-
 
 // appending to cards...might attempt later
 // $('.cardRow').append(taskCard)
@@ -105,3 +100,12 @@ function backgroundGreen() {
 // $('.cardText').append(`${list.status}`);
 // $('.cardBody').append(`<button class="complete">Complete Task</button>`);
 // $('.cardBody').append(`<button class="delete">Remove Task</button>`);
+
+// $('#listTableBody').append(`
+//             <tr>
+//                 <td>${list.task}</td>
+//                 <td>${list.status}</td>
+//                 <td><button class="complete" id="taskComplete" data-id="${list.id}" data-status="${list.status}"></button></td>
+//                 <td><button class="delete" data-id="${list.id}"></button></td>
+//             </tr>`
+// );

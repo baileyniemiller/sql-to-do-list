@@ -107,6 +107,12 @@ td {
     background-color: lightgoldenrodyellow;
 }
 
-.completeGreen {
+/* .completeGreen {
+    border-radius: 75%;
+    height: 35px;
+    width: 35px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #a0e06c;
     background-color: #a0e06c;
-}
+} */
