@@ -16,6 +16,7 @@ function getListData() {
     }).then(function (response) {
         $('#listTableBody').empty();
         $('.taskIn').val('');
+        $('body').css('background-color', 'lightgoldenrodyellow');
         for (let i=0; i<response.length; i++) {
             let list = response[i];
             $('#listTableBody').append(`
@@ -63,6 +64,9 @@ function completeTask(event) {
     let taskStatus = $(element).data("status");
     console.log($(element).data());
     taskStatus = "Complete!";
+    if (taskStatus === "Complete!") {
+        $('body').css('background-color', '#a0e06c');
+    }
     $.ajax({
         type: 'PUT',
         url: "/list/" + taskId + "/" + taskStatus //complete or incomplete
