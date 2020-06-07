@@ -50,19 +50,19 @@ In server.js we will need:
 * PUT to update an item to complete.      Path: /list/:id/status
 * DELETE to delete a list item.           Path: /list/:id
 
-### Make sure everything is working in postman!!
+### [x] Make sure everything is working in postman!!
 
 ## YAY the worst part is over.  Haha.  Frontend time.
 In client.js we will need:
-* GET --> we want to get the list and append to ul
-* POST --> allow a user to add a new task.
-    newTask = {
-        "task": (this will be the value of this input)
-        (I'm not sure if I might want status here or not...I think not...
-        because it will be default to incomplete.)
-    }
-* PUT --> allow a user to "check off" a task item and update to complete!
-* DELETE --> obviously...delete a task from the face of the earth
+* [x] GET --> we want to get the list and append to ul
+* [x] POST --> allow a user to add a new task.
+            newTask = {
+                "task": (this will be the value of this input)
+                (I'm not sure if I might want status here or not...I think not...
+                because it will be default to incomplete.)
+            }
+* [x] PUT --> allow a user to "check off" a task item and update to complete!
+* [x] DELETE --> obviously...delete a task from the face of the earth
 (all with ajax calls!)
 
 ## Have some fun with css :)

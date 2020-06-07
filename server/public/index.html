@@ -3,36 +3,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do</title>
-    <script src="jquery.js"></script>
-    <script src="client.js"></script>
+    <script src="vendors/jquery.js"></script>
+    <script src="scripts/client.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body class="body">
-    <header>
+    <header class="container-fluid">
         <h1>To-Do List</h1>
     </header>
 
-    <form>
-        <div class="form-row">
-            <div class="col-sm-3">
-                <input type="text" class="form-control" id="addTask" placeholder="Task">
-            </div>
-            <div class="col">
-                <button class="submitButton">Add Task</button>
-            </div>
-        </div>
-    </form>
+    <div class="center">
+    <input type="text" class="taskIn" placeholder="New To-Do"/>
+    <button class="addTask">Add</button>
+    </div>
 
-    <div class="table">
-        <table class="table-hover table-borderless listTable">
+    <div class="table tableBg">
+        <table class="table-borderless listTable mx-auto">
             <thead>
                 <tr>
                     <th>Task</th>
                     <th>Status</th>
-                    <th></th>
-                    <th></th>
+                    <th>Complete!</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody id="listTableBody"></tbody>

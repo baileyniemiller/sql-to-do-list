@@ -1,3 +1,112 @@
+header {
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Indie Flower', cursive;
+    color: white;
+    text-align: center;
+}
+
 body {
     background-color: lightgoldenrodyellow;
+}
+
+#id {
+    text-align: center;
+}
+
+.taskIn {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background-color: lightgoldenrodyellow;
+    margin-top: 50px;
+    color: black;
+    font-size: 20px;
+    width: 30%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+::placeholder {
+    color: black;
+    opacity: 60%;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.center {
+    text-align: center;
+}
+
+.addTask {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.addTask:hover {
+    background-color: white;
+    color: black;
+    transition: 300ms;
+}
+
+.listTable {
+    width: 40%;
+    margin-top: 75px;
+}
+
+th {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: 200px;
+}
+
+td {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.complete:hover {
+    background-color: #a0e06c;
+}
+
+.delete:hover {
+    background-color: lightsalmon;
+}
+
+.complete {
+    border-radius: 75%;
+    height: 35px;
+    width: 35px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #a0e06c;
+    background-color: lightgoldenrodyellow;
+}
+
+.delete {
+    border-radius: 10px;
+    height: 35px;
+    width: 35px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightsalmon;
+    background-color: lightgoldenrodyellow;
+}
+
+.completeGreen {
+    background-color: #a0e06c;
 }
