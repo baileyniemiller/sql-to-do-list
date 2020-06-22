@@ -45,7 +45,7 @@ You should be able to create your to-do list.
 
 ## Acknowledgement
 
-Thanks to Prime Digital Academy who equipped and helped me to make this application a reality.
+Thanks to Emerging Digital Academy who equipped and helped me to make this application a reality.
 
 ## Support
 
